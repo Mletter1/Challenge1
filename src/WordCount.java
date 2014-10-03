@@ -14,7 +14,13 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
+
 public class WordCount {
+
+    public String stemTerm (String term) {
+        PorterStemmer stemmer = new PorterStemmer();
+        return stemmer.stem(term);
+    }
 
     public static class TokenizerMapper
             extends Mapper<Object, Text, Text, IntWritable>{
