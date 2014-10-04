@@ -1,5 +1,8 @@
 <component name="libraryTable">
   <library name="lib">
+    <ANNOTATIONS>
+      <root url="file://$PROJECT_DIR$/lib" />
+    </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/hadoop-core-0.19.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/hadoop-mapreduce-client-app-2.5.1.jar!/" />
