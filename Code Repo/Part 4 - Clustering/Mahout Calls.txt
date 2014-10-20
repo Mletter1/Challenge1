@@ -1,0 +1,25 @@
+Mahout kmeans
+/usr/local/mahout-distribution-0.9/bin/mahout kmeans -i /users/waybrd/cluster/input/vectors/vectors -c /users/waybrd/cluster/initClusters -o /users/waybrd/cluster/output -ow -cd 0.000000001 -dm org.apache.mahout.common.distance.CosineDistanceMeasure -x 500 -k 50 -cl
+
+Clusterdump
+/usr/local/mahout-distribution-0.9/bin/mahout clusterdump -i /users/waybrd/cluster/output/clusters-159-final -o /users/waybrd/cluster/output/final/text -of TEXT -dm org.apache.mahout.common.distance.CosineDistanceMeasure -p /users/waybrd/cluster/output/clusteredPoints
+
+
+
+Mahout fkmeans
+galles163:~/cluster/output> /usr/local/mahout-distribution-0.9/bin/mahout fkmeans -i /users/waybrd/cluster/input/vectors/vectors -c /users/waybrd/cluster/fkmeans/initClusters -o /users/waybrd/cluster/fkmeans/output -ow -cd 0.005 -dm org.apache.mahout.common.distance.CosineDistanceMeasure -x 500 -k 100 -m 1.5 -e -cl -xm sequential
+Running on hadoop, using /usr/local/hadoop/bin/hadoop and HADOOP_CONF_DIR=
+MAHOUT-JOB: /usr/local/mahout-distribution-0.9/mahout-examples-0.9-job.jar
+14/10/17 19:45:57 INFO common.AbstractJob: Command line arguments: {--clustering=null, --clusters=[/users/waybrd/cluster/fkmeans/initClusters], --convergenceDelta=[0.005], --distanceMeasure=[org.apache.mahout.common.distance.CosineDistanceMeasure], --emitMostLikely=[true], --endPhase=[2147483647], --input=[/users/waybrd/cluster/input/vectors/vectors], --m=[1.5], --maxIter=[500], --method=[sequential], --numClusters=[100], --output=[/users/waybrd/cluster/fkmeans/output], --overwrite=null, --startPhase=[0], --tempDir=[temp], --threshold=[0]}
+14/10/17 19:45:57 INFO common.HadoopUtil: Deleting /users/waybrd/cluster/fkmeans/output
+14/10/17 19:45:57 INFO common.HadoopUtil: Deleting /users/waybrd/cluster/fkmeans/initClusters
+14/10/17 19:45:57 INFO util.NativeCodeLoader: Loaded the native-hadoop library
+14/10/17 19:45:57 INFO zlib.ZlibFactory: Successfully loaded & initialized native-zlib library
+14/10/17 19:45:57 INFO compress.CodecPool: Got brand-new compressor
+14/10/17 19:45:59 INFO kmeans.RandomSeedGenerator: Wrote 100 Klusters to /users/waybrd/cluster/fkmeans/initClusters/part-randomSeed
+14/10/17 19:45:59 INFO compress.CodecPool: Got brand-new decompressor
+14/10/17 19:58:38 INFO fuzzykmeans.FuzzyKMeansDriver: Clustering
+14/10/17 20:00:38 INFO driver.MahoutDriver: Program took 880921 ms (Minutes: 14.682016666666666)
+
+Clusterdump fkmeans
+/usr/local/mahout-distribution-0.9/bin/mahout clusterdump -i /users/waybrd/cluster/fkmeans/output/clusters-5-final -o /users/waybrd/cluster/output/fkmeans/text -of TEXT -dm org.apache.mahout.common.distance.CosineDistanceMeasure -p /users/waybrd/cluster/output/fkmeans/clusteredPoints
